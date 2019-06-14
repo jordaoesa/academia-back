@@ -1,0 +1,18 @@
+node_modules/
+files/
+uploads/
+reports/
+bower_components/
+
+yarn.lock
+package-lock.json
+npm-debug.log
+
+### WebStorm related files ###
+.idea/
+
+### Apple related files ###
+.DS_Store
+public/.DS_Store
+*.DS_Store*
+.tags*
