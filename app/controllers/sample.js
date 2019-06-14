@@ -1,12 +1,10 @@
 const sanitize = require('mongo-sanitize');
+const mongoose = require('mongoose');
+const Sample = mongoose.model('Sample');
 
-module.exports = function (app) {
+class SampleController {
 
-    const Sample = app.app.models.sample;
-
-    let controller = {};
-
-    controller.list = function(req, res) {
+    list(req, res) {
         let query = sanitize(req.query);
 
         Sample.find({}).lean(true).exec(function(err, resultQuery){
@@ -17,14 +15,15 @@ module.exports = function (app) {
                 return res.status(200).json(resultQuery);
             }
         });
-    };
+    }
 
-    controller.post = function(req, res) {
+    post(req, res) {
         new Sample(req.body)
             .save()
             .then(response => res.status(200).json(response))
             .catch(err => res.status(500).json(err));
-    };
+    }
 
-    return controller;
-};
+}
+
+module.exports = new SampleController();

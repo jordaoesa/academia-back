@@ -1,26 +1,32 @@
 const mongoose = require('mongoose');
 const cons = require('./const.js');
 
-module.exports = function() {
-
-    mongoose.connect(cons.db.uri, cons.db.options);
-
-    mongoose.connection.on('connected', function() {
-        console.log('Mongoose! Connected in ' + cons.db.uri);
+class Database {
+  constructor() {
+    process.on('SIGINT', function () {
+      mongoose.connection.close(function () {
+        process.exit(0);
+      });
     });
+  }
 
-    mongoose.connection.on('disconnected', function() {
-        console.log('Mongoose! Disconnected from ' + cons.db.uri);
+  establishConnection() {
+    return new Promise((resolve, reject) => {
+      mongoose.connect(cons.db.uri, cons.db.options, (err) => {
+        if (err) {
+          reject(err)
+        } else {
+          resolve();
+        }
+      });
     });
+  }
 
-    mongoose.connection.on('error', function(erro) {
-        console.log('Mongoose! Connection Error: ' + erro);
-    });
+  connect() {
+    return Promise.resolve()
+        .then(() => this.establishConnection());
+  }
 
-    process.on('SIGINT', function() {
-        mongoose.connection.close(function() {
-            console.log('Mongoose! Disconnected by application termination');
-            process.exit(0);
-        });
-    });
-};
+}
+
+module.exports = Database;

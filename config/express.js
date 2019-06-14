@@ -2,11 +2,12 @@ const express = require('express');
 const consign = require('consign');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
+const cons = require('./const');
 
 module.exports = function() {
     const app = express();
 
-    app.set('port', process.env.PORT || 3000);
+    app.set('port', cons.server.port);
 
     app.use(require('morgan')('dev'));
     app.use(bodyParser.urlencoded({extended: true}));

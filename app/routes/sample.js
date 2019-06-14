@@ -1,6 +1,6 @@
-module.exports = function (app) {
+const controller = require('../controllers/sample');
 
-    const controller = app.app.controllers.sample;
+module.exports = function (app) {
 
     app.route('/sample')
         .get(controller.list)
