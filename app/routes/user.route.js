@@ -5,5 +5,5 @@ module.exports = function (app) {
 
   app.route('/users')
       .get(permission.isLoggedIn, controller.list)
-      .post(permission.isLoggedIn, controller.post);
+      .post(controller.post);
 };

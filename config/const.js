@@ -34,7 +34,7 @@ module.exports = {
 
   errorDetails: {
     UNAUTHORIZED_USER: { code: 3000, message: 'Unauthorized user' },
-    WRONG_USER_PASSWORD: { code: 3001, message: 'Wrong user or password' },
+    WRONG_USERNAME_PASSWORD: { code: 3001, message: 'Wrong username or password' },
     USER_NOT_FOUND: { code: 3002, message: 'User not found' },
   }
 
