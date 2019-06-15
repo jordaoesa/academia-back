@@ -14,7 +14,7 @@ class AuthController {
         .then(user => {
           if (user) {
             if (!user.isValidPassword(password)) {
-              return res.status(cons.http.FORBIDDEN).send(cons.errorDetails.WRONG_USERNAME_PASSWORD);
+              return res.status(cons.http.UNAUTHORIZED).send(cons.errorDetails.WRONG_USERNAME_PASSWORD);
             }
 
             let expirationDate = new Date();

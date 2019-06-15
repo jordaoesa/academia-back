@@ -24,7 +24,7 @@ module.exports = function () {
             return callback(err);
           }
           if (!user) {
-            return callback(null, false);
+            return callback(cons.errorDetails.UNAUTHORIZED_USER, false);
           }
           if (user.token_expiration_date < new Date()) {
             return callback(null, false);

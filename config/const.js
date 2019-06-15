@@ -21,21 +21,21 @@ module.exports = {
     SUCCESS: 200,
     CREATED: 201,
     NO_CONTENT: 204,
-    FORBIDDEN: 401,
-    UNAUTHORIZED: 403,
+    UNAUTHORIZED: 401,
+    FORBIDDEN: 403,
     NOT_FOUND: 404,
     INTERNAL_SERVER_ERROR: 500,
   },
 
   successDetails: {
-    USER_REGISTERED_SUCCESS: { code: 2000, message: 'User successfully registered' },
-    USER_SIGN_OUT_SUCCESS: { code: 2001, message: 'User successfully signed out' },
+    USER_REGISTERED_SUCCESS: { code: 2000, message: 'Usuário registrado' },
+    USER_SIGN_OUT_SUCCESS: { code: 2001, message: 'Usuário deslogado' },
   },
 
   errorDetails: {
-    UNAUTHORIZED_USER: { code: 3000, message: 'Unauthorized user' },
-    WRONG_USERNAME_PASSWORD: { code: 3001, message: 'Wrong username or password' },
-    USER_NOT_FOUND: { code: 3002, message: 'User not found' },
+    UNAUTHORIZED_USER: { code: 3000, message: 'Usuário sem permissão' },
+    WRONG_USERNAME_PASSWORD: { code: 3001, message: 'Nome de usuário ou senha incorretos' },
+    USER_NOT_FOUND: { code: 3002, message: 'Usuário não encontrado' },
   }
 
 };
