@@ -7,7 +7,7 @@ class SampleController {
     list(req, res) {
         let query = sanitize(req.query);
 
-        Sample.find({}).lean(true).exec(function(err, resultQuery){
+        Sample.find(query).lean(true).exec(function(err, resultQuery){
             if (err) {
                 console.log("err: " + err);
                 return res.status(500).json(err);
